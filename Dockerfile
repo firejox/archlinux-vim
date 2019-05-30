@@ -30,8 +30,9 @@ WORKDIR ${UHOME}
 
 RUN git clone --recurse-submodules https://github.com/firejox/vim-settings.git && \
   ln -s vim-settings/.vimrc ${UHOME}/.vimrc && \
-  ln -s vim-settings/.vim ${UHOME}/.vim && \
-  sudo vim -E -c 'helptags ALL' -c q
+  ln -s vim-settings/.vim ${UHOME}/.vim
+
+RUN  vim -V -E -c 'helptags ALL' -c 'q' || true
 
 RUN mkdir -p "${UHOME}/workspace"
 
