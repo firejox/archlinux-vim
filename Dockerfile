@@ -18,7 +18,8 @@ RUN git clone https://github.com/universal-ctags/ctags.git && \
     ./autogen.sh && \
     ./configure && \
     make && \
-    make install
+    make install && \
+    rm -rf /usr/local/src
 
 RUN groupadd -g ${GID} ${GNAME}
 RUN useradd -m -d ${UHOME} -u ${UID} -g ${GID} -s ${SHELL} ${UNAME}
